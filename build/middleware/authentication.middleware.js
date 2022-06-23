@@ -2,7 +2,7 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var config_1 = __importDefault(require("../config"));
 var handleUnauthorizedError = function (next) {
@@ -17,7 +17,7 @@ var validateTokenMiddleware = function (req, _res, next) {
             var bearer = authHeader.split(' ')[0].toLowerCase();
             var token = authHeader.split(' ')[1];
             if (token && bearer === 'bearer') {
-                var decoded = jsonwebtoken_1["default"].verify(token, config_1["default"].tokenSecret);
+                var decoded = jsonwebtoken_1.default.verify(token, config_1.default.tokenSecret);
                 if (decoded) {
                     next();
                 }
@@ -37,4 +37,4 @@ var validateTokenMiddleware = function (req, _res, next) {
         handleUnauthorizedError(next);
     }
 };
-exports["default"] = validateTokenMiddleware;
+exports.default = validateTokenMiddleware;

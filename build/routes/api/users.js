@@ -49,15 +49,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var config_1 = __importDefault(require("../../config"));
 var user_model_1 = __importDefault(require("../../models/user.model"));
 var authentication_middleware_1 = __importDefault(require("../../middleware/authentication.middleware"));
 var routes = (0, express_1.Router)();
-var userModel = new user_model_1["default"]();
-routes.post('/', authentication_middleware_1["default"], function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+var userModel = new user_model_1.default();
+routes.post('/', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, token, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -66,7 +66,7 @@ routes.post('/', authentication_middleware_1["default"], function (req, res, nex
                 return [4 /*yield*/, userModel.create(req.body)];
             case 1:
                 user = _a.sent();
-                token = jsonwebtoken_1["default"].sign({ user: user }, config_1["default"].tokenSecret);
+                token = jsonwebtoken_1.default.sign({ user: user }, config_1.default.tokenSecret);
                 res.json({
                     status: 'success',
                     data: __assign(__assign({}, user), { token: token }),
@@ -81,7 +81,7 @@ routes.post('/', authentication_middleware_1["default"], function (req, res, nex
         }
     });
 }); });
-routes.get('/', authentication_middleware_1["default"], function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.get('/', authentication_middleware_1.default, function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var users, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -104,7 +104,7 @@ routes.get('/', authentication_middleware_1["default"], function (_req, res, nex
         }
     });
 }); });
-routes.get('/:id', authentication_middleware_1["default"], function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.get('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -127,7 +127,7 @@ routes.get('/:id', authentication_middleware_1["default"], function (req, res, n
         }
     });
 }); });
-routes.patch('/:id', authentication_middleware_1["default"], function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.patch('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -150,13 +150,13 @@ routes.patch('/:id', authentication_middleware_1["default"], function (req, res,
         }
     });
 }); });
-routes["delete"]('/:id', authentication_middleware_1["default"], function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.delete('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, userModel["delete"](req.params.id)];
+                return [4 /*yield*/, userModel.delete(req.params.id)];
             case 1:
                 user = _a.sent();
                 res.json({
@@ -183,7 +183,7 @@ routes.post('/authenticate', function (req, res, next) { return __awaiter(void 0
                 return [4 /*yield*/, userModel.authenticate(userName, password)];
             case 1:
                 user = _b.sent();
-                token = jsonwebtoken_1["default"].sign({ user: user }, config_1["default"].tokenSecret);
+                token = jsonwebtoken_1.default.sign({ user: user }, config_1.default.tokenSecret);
                 if (!user) {
                     return [2 /*return*/, res.json({
                             status: 'success',
@@ -202,4 +202,4 @@ routes.post('/authenticate', function (req, res, next) { return __awaiter(void 0
         }
     });
 }); });
-exports["default"] = routes;
+exports.default = routes;

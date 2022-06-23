@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable class-methods-use-this */
 var database_1 = __importDefault(require("../database"));
 var ProductModel = /** @class */ (function () {
@@ -50,7 +50,7 @@ var ProductModel = /** @class */ (function () {
             name: product.name,
             description: product.description,
             price: +product.price,
-            category: product.category
+            category: product.category,
         };
     };
     ProductModel.prototype.create = function (p) {
@@ -60,7 +60,7 @@ var ProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "INSERT INTO  products (name, description, price, category) values ($1, $2, $3, $4) RETURNING *";
@@ -90,7 +90,7 @@ var ProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "SELECT * FROM products";
@@ -114,7 +114,7 @@ var ProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "UPDATE products SET name=$1, description=$2, price=$3, category=$4 WHERE id=$5 RETURNING *";
@@ -137,14 +137,14 @@ var ProductModel = /** @class */ (function () {
             });
         });
     };
-    ProductModel.prototype["delete"] = function (id) {
+    ProductModel.prototype.delete = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var connection, sql, result, err_4;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "DELETE FROM products WHERE id=($1) RETURNING *";
@@ -169,7 +169,7 @@ var ProductModel = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
                         sql = "SELECT * FROM products WHERE id=($1)";
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         return [4 /*yield*/, connection.query(sql, [id])];
@@ -187,4 +187,4 @@ var ProductModel = /** @class */ (function () {
     };
     return ProductModel;
 }());
-exports["default"] = ProductModel;
+exports.default = ProductModel;

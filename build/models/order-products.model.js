@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable class-methods-use-this */
 /* eslint-disable camelcase */
 var database_1 = __importDefault(require("../database"));
@@ -55,7 +55,7 @@ var OrderProductModel = /** @class */ (function () {
                 oP.products.length > 0 &&
                 oP.products[0].name
                 ? oP.products
-                : []
+                : [],
         };
     };
     OrderProductModel.prototype.create = function (oP) {
@@ -65,7 +65,7 @@ var OrderProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "INSERT INTO order_products (quantity, order_id, product_id) values ($1, $2, $3) RETURNING *";
@@ -94,7 +94,7 @@ var OrderProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "SELECT o.id AS id, op.order_id, op.product_id, JSON_AGG(JSONB_BUILD_OBJECT('productId', p.id, 'name', p.name, 'description', p.description,'category', p.category, 'price', p.price, 'quantity', op.quantity)) AS products FROM orders AS o LEFT JOIN order_products AS op ON o.id = op.order_id LEFT JOIN products AS p ON op.product_id = p.id WHERE o.id=$1 GROUP BY o.id, op.order_id, op.product_id";
@@ -118,7 +118,7 @@ var OrderProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = 'SELECT op.order_id::INTEGER AS id, op.order_id::INTEGER AS "orderId", op.product_id::INTEGER AS "productId", op.quantity, p.name, p.description, p.category, p.price::INTEGER FROM order_products AS op JOIN products AS p ON p.id=op.product_id WHERE order_id=$1 AND product_id=$2';
@@ -142,7 +142,7 @@ var OrderProductModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "UPDATE order_products SET quantity=$1, order_id=$2,  product_id=$3 WHERE id=$4 RETURNING *";
@@ -164,14 +164,14 @@ var OrderProductModel = /** @class */ (function () {
             });
         });
     };
-    OrderProductModel.prototype["delete"] = function (orderId, productId) {
+    OrderProductModel.prototype.delete = function (orderId, productId) {
         return __awaiter(this, void 0, void 0, function () {
             var connection, sql, result, err_5;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "DELETE FROM order_products WHERE order_id=($1) and product_id=($2) RETURNING *";
@@ -190,4 +190,4 @@ var OrderProductModel = /** @class */ (function () {
     };
     return OrderProductModel;
 }());
-exports["default"] = OrderProductModel;
+exports.default = OrderProductModel;

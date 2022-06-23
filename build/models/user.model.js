@@ -38,7 +38,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 /* eslint-disable camelcase  */
 /* eslint-disable class-methods-use-this  */
 var bcrypt_1 = __importDefault(require("bcrypt"));
@@ -54,7 +54,7 @@ var UserModel = /** @class */ (function () {
             email: user.email,
             userName: user.user_name,
             firstName: user.first_name,
-            lastName: user.last_name
+            lastName: user.last_name,
         };
     };
     UserModel.prototype.create = function (u) {
@@ -64,7 +64,7 @@ var UserModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "INSERT INTO users (email, user_name, first_name, last_name, password) values ($1, $2, $3, $4, $5) returning id, email, user_name, first_name, last_name";
@@ -73,7 +73,7 @@ var UserModel = /** @class */ (function () {
                                 u.userName,
                                 u.firstName,
                                 u.lastName,
-                                (0, hash_password_1["default"])(u.password),
+                                (0, hash_password_1.default)(u.password),
                             ])];
                     case 2:
                         result = _a.sent();
@@ -95,7 +95,7 @@ var UserModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "SELECT * FROM users";
@@ -119,7 +119,7 @@ var UserModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "UPDATE users SET email=$1, user_name=$2, first_name=$3, last_name=$4, password=$5 WHERE id=$6 RETURNING *";
@@ -128,7 +128,7 @@ var UserModel = /** @class */ (function () {
                                 u.userName,
                                 u.firstName,
                                 u.lastName,
-                                (0, hash_password_1["default"])(u.password),
+                                (0, hash_password_1.default)(u.password),
                                 u.id,
                             ])];
                     case 2:
@@ -143,14 +143,14 @@ var UserModel = /** @class */ (function () {
             });
         });
     };
-    UserModel.prototype["delete"] = function (id) {
+    UserModel.prototype.delete = function (id) {
         return __awaiter(this, void 0, void 0, function () {
             var connection, sql, result, err_3;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "DELETE FROM users WHERE id=($1) RETURNING *";
@@ -175,7 +175,7 @@ var UserModel = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 3, , 4]);
                         sql = "SELECT * FROM users WHERE id=($1)";
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         return [4 /*yield*/, connection.query(sql, [id])];
@@ -198,7 +198,7 @@ var UserModel = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 5, , 6]);
-                        return [4 /*yield*/, database_1["default"].connect()];
+                        return [4 /*yield*/, database_1.default.connect()];
                     case 1:
                         connection = _a.sent();
                         sql = "SELECT password FROM users WHERE user_name=$1";
@@ -207,7 +207,7 @@ var UserModel = /** @class */ (function () {
                         result = _a.sent();
                         if (!result.rows.length) return [3 /*break*/, 4];
                         hashedPassword = result.rows[0].password;
-                        isPasswordValid = bcrypt_1["default"].compareSync("".concat(password).concat(config_1["default"].pepper), hashedPassword);
+                        isPasswordValid = bcrypt_1.default.compareSync("".concat(password).concat(config_1.default.pepper), hashedPassword);
                         if (!isPasswordValid) return [3 /*break*/, 4];
                         return [4 /*yield*/, connection.query("SELECT * FROM users WHERE user_name=($1)", [userName])];
                     case 3:
@@ -226,4 +226,4 @@ var UserModel = /** @class */ (function () {
     };
     return UserModel;
 }());
-exports["default"] = UserModel;
+exports.default = UserModel;

@@ -49,11 +49,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var express_1 = require("express");
 var order_products_model_1 = __importDefault(require("../../models/order-products.model"));
 var routes = (0, express_1.Router)();
-var orderProductModel = new order_products_model_1["default"]();
+var orderProductModel = new order_products_model_1.default();
 routes.post('/:id', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var orderProduct, err_1;
     return __generator(this, function (_a) {
@@ -146,13 +146,13 @@ routes.patch('/:id/products/:id', function (req, res, next) { return __awaiter(v
         }
     });
 }); });
-routes["delete"]('/:id/products/:id', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.delete('/:id/products/:id', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var orderProduct, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
                 _a.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, orderProductModel["delete"](req.body.orderId, req.body.productId)];
+                return [4 /*yield*/, orderProductModel.delete(req.body.orderId, req.body.productId)];
             case 1:
                 orderProduct = _a.sent();
                 res.json({
@@ -169,4 +169,4 @@ routes["delete"]('/:id/products/:id', function (req, res, next) { return __await
         }
     });
 }); });
-exports["default"] = routes;
+exports.default = routes;
