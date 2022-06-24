@@ -45,10 +45,10 @@ ___Table of Contents___
           "users": [
             {
               "id": 1,
-              "email": "mo@elzanaty.com",
-              "userName": "mohammedelzanaty",
-              "firstName": "Mohammed",
-              "lastName": "Elzanaty"
+              "email": "mohamedsawah@gmail.com",
+              "userName": "mohamedsawah",
+              "firstName": "mohamed",
+              "lastName": "sawah"
             }
           ]
         },
@@ -73,10 +73,10 @@ ___Table of Contents___
           "data": {
             "user": {
               "id": 1,
-              "email": "mo@elzanaty.com",
-              "userName": "mohammedelzanaty",
-              "firstName": "Mohammed",
-              "lastName": "Elzanaty"
+              "email": "mohamedsawah@gmail.com",
+              "userName": "mohamedsawah",
+              "firstName": "mohamed",
+              "lastName": "sawah"
             }
           },
           "message": "user retrieved successfully"
@@ -150,10 +150,10 @@ ___Table of Contents___
     ```json
       {
         "id": 1,
-        "email": "mo@elzanaty.com",
-        "userName": "mohammedelzanaty",
-        "firstName": "Mohammed",
-        "lastName": "Elzanaty",
+        "email": "sawah@gmail.com",
+        "userName": "swah",
+        "firstName": "mohamed",
+        "lastName": "sawah",
         "password": "test123"
       }
     ```
@@ -166,10 +166,10 @@ ___Table of Contents___
         "data": {
           "user": {
             "id": 1,
-            "email": "mo@elzanaty.com",
-            "userName": "mohammedelzanaty",
+            "email": "sawah@gmail.com",
+            "userName": "mohamedsawah",
             "firstName": "Mohammed",
-            "lastName": "Elzanaty"
+            "lastName": "sawah"
           }
         },
         "message": "user updated successfully"
@@ -183,7 +183,7 @@ ___Table of Contents___
 
     ```json
       {
-        "userName": "mohammedelzanaty",
+        "userName": "mohamedsawah",
         "password": "test123"
       }
     ```
@@ -195,10 +195,10 @@ ___Table of Contents___
         "status": "success",
         "data": {
           "id": 1,
-          "email": "mo@elzanaty.com",
-          "userName": "mohammedelzanaty",
+          "email": "sawah@gmail.com",
+          "userName": "mohamedsawah",
           "firstName": "Mohammed",
-          "lastName": "Elzanaty",
+          "lastName": "sawah",
           "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoxLCJlbWFpbCI6Im1vQGVsemFuYXR5LmNvbSIsInVzZXJOYW1lIjoibW9oYW1tZWRlbHphbmF0eSIsImZpcnN0TmFtZSI6Ik1vaGFtbWVkIiwibGFzdE5hbWUiOiJFbHphbmF0eSJ9LCJpYXQiOjE2MjUwMDExMDB9.ubpj0l9VSl2Hd-KlHRqqO3-PmSf0VAySY2qnJ1N_S2Y"
         },
         "message": "user authenticated successfully"
@@ -378,7 +378,7 @@ ___Table of Contents___
                 "id": 1,
                 "status": "active",
                 "userId": 1,
-                "userName": "mohammedelzanaty",
+                "userName": "mohamedsawah",
                 "products": [
                   {
                     "name": "product name",
@@ -415,7 +415,7 @@ ___Table of Contents___
             "id": 1,
             "status": "active",
             "userId": 1,
-            "userName": "mohammedelzanaty",
+            "userName": "mohamedsawah",
             "products": []
           }
         },

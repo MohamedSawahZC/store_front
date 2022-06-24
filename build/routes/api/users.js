@@ -57,7 +57,7 @@ var user_model_1 = __importDefault(require("../../models/user.model"));
 var authentication_middleware_1 = __importDefault(require("../../middleware/authentication.middleware"));
 var routes = (0, express_1.Router)();
 var userModel = new user_model_1.default();
-routes.post('/', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.post("/", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, token, err_1;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -68,9 +68,9 @@ routes.post('/', authentication_middleware_1.default, function (req, res, next) 
                 user = _a.sent();
                 token = jsonwebtoken_1.default.sign({ user: user }, config_1.default.tokenSecret);
                 res.json({
-                    status: 'success',
+                    status: "success",
                     data: __assign(__assign({}, user), { token: token }),
-                    message: 'user created successfully'
+                    message: "user created successfully",
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -81,7 +81,7 @@ routes.post('/', authentication_middleware_1.default, function (req, res, next) 
         }
     });
 }); });
-routes.get('/', authentication_middleware_1.default, function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.get("/", authentication_middleware_1.default, function (_req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var users, err_2;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -91,9 +91,9 @@ routes.get('/', authentication_middleware_1.default, function (_req, res, next) 
             case 1:
                 users = _a.sent();
                 res.json({
-                    status: 'success',
+                    status: "success",
                     data: { users: users },
-                    message: 'users retrieved successfully'
+                    message: "users retrieved successfully",
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -104,7 +104,7 @@ routes.get('/', authentication_middleware_1.default, function (_req, res, next) 
         }
     });
 }); });
-routes.get('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.get("/:id", authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_3;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -114,9 +114,9 @@ routes.get('/:id', authentication_middleware_1.default, function (req, res, next
             case 1:
                 user = _a.sent();
                 res.json({
-                    status: 'success',
+                    status: "success",
                     data: { user: user },
-                    message: 'user retrieved successfully'
+                    message: "user retrieved successfully",
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -127,7 +127,7 @@ routes.get('/:id', authentication_middleware_1.default, function (req, res, next
         }
     });
 }); });
-routes.patch('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.patch("/:id", authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_4;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -137,9 +137,9 @@ routes.patch('/:id', authentication_middleware_1.default, function (req, res, ne
             case 1:
                 user = _a.sent();
                 res.json({
-                    status: 'success',
+                    status: "success",
                     data: { user: user },
-                    message: 'user updated successfully'
+                    message: "user updated successfully",
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -150,7 +150,7 @@ routes.patch('/:id', authentication_middleware_1.default, function (req, res, ne
         }
     });
 }); });
-routes.delete('/:id', authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.delete("/:id", authentication_middleware_1.default, function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var user, err_5;
     return __generator(this, function (_a) {
         switch (_a.label) {
@@ -160,9 +160,9 @@ routes.delete('/:id', authentication_middleware_1.default, function (req, res, n
             case 1:
                 user = _a.sent();
                 res.json({
-                    status: 'success',
+                    status: "success",
                     data: { user: user },
-                    message: 'user deleted successfully'
+                    message: "user deleted successfully",
                 });
                 return [3 /*break*/, 3];
             case 2:
@@ -173,7 +173,7 @@ routes.delete('/:id', authentication_middleware_1.default, function (req, res, n
         }
     });
 }); });
-routes.post('/authenticate', function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
+routes.post("/authenticate", function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, userName, password, user, token, err_6;
     return __generator(this, function (_b) {
         switch (_b.label) {
@@ -186,14 +186,14 @@ routes.post('/authenticate', function (req, res, next) { return __awaiter(void 0
                 token = jsonwebtoken_1.default.sign({ user: user }, config_1.default.tokenSecret);
                 if (!user) {
                     return [2 /*return*/, res.json({
-                            status: 'success',
-                            message: 'the username and password do not match please try again'
+                            status: "success",
+                            message: "the username and password do not match please try again",
                         })];
                 }
                 return [2 /*return*/, res.json({
-                        status: 'success',
+                        status: "success",
                         data: __assign(__assign({}, user), { token: token }),
-                        message: 'user authenticated successfully'
+                        message: "user authenticated successfully",
                     })];
             case 2:
                 err_6 = _b.sent();

@@ -49,6 +49,46 @@ TOKEN_SECRET=sawah-token
 ```
 
 
+# Database install
+
+## First , Database creation
+
+- To create data base
+
+```
+create database store_front
+```
+- To create database for test
+
+```
+create database store_front_test
+```
+
+## Second, set your enviroment data
+
+```
+# .env
+NODE_ENV=development
+PORT=3000
+# Set your database connection information here
+DB_HOST=localhost
+DB_PORT=5432
+DB_DATABASE=store_front
+DB_DATABASE_TEST=store_front_test
+DB_USER=postgres
+DB_PASS=01020262701
+# user
+BCRYPT_PASSWORD=your-secret-password
+SALT_ROUNDS=10
+TOKEN_SECRET=your-secret-token
+
+```
+
+- Run migrations
+  
+```
+db-migrate up
+```
 
 # Login to Postgres
 psql -U postgres
